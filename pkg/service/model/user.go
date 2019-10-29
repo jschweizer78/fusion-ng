@@ -14,6 +14,7 @@ type UserQuestion struct {
 	Customers *question.DropDown `json:"customers"`
 }
 
+// NewUserQuestions user metadata
 func NewUserQuestions() *UserQuestion {
 	eBase := question.NewBase("email", "Email", "text", 0, true)
 	email := question.NewTextBox(eBase, "email")

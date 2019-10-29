@@ -88,6 +88,5 @@ func main() {
 	customers := srv.Customers()
 	app.Bind(users)
 	app.Bind(customers)
-	app.Bind(basic)
 	app.Run()
 }
