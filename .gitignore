@@ -1,3 +1,6 @@
-**/frontend
 *.json
 fusion-editor-ng
+**/dist
+**/e2e
+.gitignore
+.editorconfig
