@@ -16,13 +16,14 @@ func NewBase(key, label, controlType string, order uint32, required bool) *Base 
 
 // Base is a base type to confirm to a question interface
 type Base struct {
-	key         string
-	label       string
-	order       uint32
-	required    bool
-	controlType string
+	Key         string `json:"key"`
+	Label       string `json:"label"`
+	Order       uint32 `json:"order"`
+	Required    bool   `json:"required"`
+	ControlType string `json:"controlType"`
 }
 
+/*
 // Key is for interface
 func (qb *Base) Key() string {
 	return qb.key
@@ -47,3 +48,4 @@ func (qb *Base) Required() bool {
 func (qb *Base) ControlType() string {
 	return qb.controlType
 }
+*/

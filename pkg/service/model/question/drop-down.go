@@ -3,7 +3,7 @@ package question
 // DropDown a type of question
 type DropDown struct {
 	*Base
-	options []*SelectOptions
+	Options []*SelectOptions `json:"options"`
 }
 
 // SelectOptions to provide options for a drop down
@@ -18,10 +18,12 @@ type MultiSelect struct {
 	Multiple bool
 }
 
+/*
 //Options for reading the options
 func (dd *DropDown) Options() []*SelectOptions {
 	return dd.options
 }
+*/
 
 // NewDropDown for creating a new drop down
 func NewDropDown(root *Base, options []*SelectOptions) *DropDown {
