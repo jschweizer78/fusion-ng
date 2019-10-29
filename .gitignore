@@ -1,4 +1,3 @@
-*.json
 fusion-editor-ng
 **/dist
 **/e2e
