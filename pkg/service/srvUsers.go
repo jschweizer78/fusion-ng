@@ -10,14 +10,14 @@ import (
 // SrvUsers is a service for users
 type SrvUsers struct {
 	DB       storm.Node
-	MetaData *model.UserQuestion
+	metaData *model.UserQuestion
 }
 
 // NewSrvUsers for user CRUD
 func NewSrvUsers(db storm.Node) *SrvUsers {
 	return &SrvUsers{
 		DB:       db,
-		MetaData: &model.UserQuestion{},
+		metaData: &model.UserQuestion{},
 	}
 }
 
@@ -44,7 +44,7 @@ func (su *SrvUsers) GetOne(id string) (*model.User, error) {
 // GetLimit gets users from storm DB by email
 func (su *SrvUsers) GetLimit(field, filter string, skip, limit int) ([]*model.User, error) {
 	var users []*model.User
-	err := su.DB.Find(field, filter, users, storm.Skip(skip), storm.Limit(limit))
+	err := su.DB.Find(field, filter, &users, storm.Skip(skip), storm.Limit(limit))
 	if err != nil {
 		return nil, fmt.Errorf("coul not find users by %s: %v", field, err)
 	}
@@ -67,4 +67,9 @@ func (su *SrvUsers) DeleteOne(email string) error {
 		return fmt.Errorf("coul not delete user %s: %v", email, err)
 	}
 	return nil
+}
+
+// MetaData to get the metadata regarding type's questions
+func (su *SrvUsers) MetaData() *model.UserQuestion {
+	return su.metaData
 }
