@@ -22,30 +22,3 @@ type Base struct {
 	Required    bool   `json:"required"`
 	ControlType string `json:"controlType"`
 }
-
-/*
-// Key is for interface
-func (qb *Base) Key() string {
-	return qb.key
-}
-
-// Label is for interface
-func (qb *Base) Label() string {
-	return qb.label
-}
-
-// Order is for interface
-func (qb *Base) Order() uint32 {
-	return qb.order
-}
-
-// Required is for interface
-func (qb *Base) Required() bool {
-	return qb.required
-}
-
-// ControlType is for interface
-func (qb *Base) ControlType() string {
-	return qb.controlType
-}
-*/

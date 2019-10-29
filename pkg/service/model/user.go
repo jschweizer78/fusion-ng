@@ -18,7 +18,7 @@ func NewUserQuestions() *UserQuestion {
 	eBase := question.NewBase("email", "Email", "text", 0, true)
 	email := question.NewTextBox(eBase, "email")
 	cBase := question.NewBase("customers", "Customers", "dropdown", 1, false)
-	cOptions := make([]*question.SelectOptions, 1, 10)
+	cOptions := make([]*question.SelectOptions, 0, 10)
 	cOptions = append(cOptions, &question.SelectOptions{
 		Key:   "new",
 		Value: "New",
