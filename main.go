@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"path/filepath"
+	"runtime"
 
 	"github.com/asdine/storm/v3"
 	"github.com/jschweizer78/fusion-ng/pkg/service"
@@ -24,10 +25,18 @@ var DB *storm.DB
 func init() {
 	// Open and/or create app data folder
 	home := userHomeDir()
-	dir := filepath.Join(home, appDataRoot, appDataDir)
+	var dir string
+	var rootDir string
+
+	if runtime.GOOS == "windows" {
+		dir = filepath.Join(home, "appdata", appDataRoot, appDataDir)
+		rootDir = filepath.Join(home, "appdata", appDataRoot)
+	} else {
+		dir = filepath.Join(home, appDataRoot, appDataDir)
+		rootDir = filepath.Join(home, appDataRoot)
+	}
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 
-		rootDir := filepath.Join(home, appDataRoot)
 		if _, err := os.Stat(rootDir); os.IsNotExist(err) {
 
 			err := os.Mkdir(rootDir, 0700)
