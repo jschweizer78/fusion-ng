@@ -31,6 +31,11 @@ func (su *SrvUsers) GetAll() ([]*model.User, error) {
 	return users, nil
 }
 
+// Name to comply with interface
+func (su *SrvUsers) Name() string {
+	return DBUsers
+}
+
 // GetOne gets one user from storm DB by email
 func (su *SrvUsers) GetOne(id string) (*model.User, error) {
 	var user *model.User

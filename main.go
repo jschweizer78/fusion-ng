@@ -84,9 +84,22 @@ func main() {
 		CSS:    css,
 		Colour: "#131313",
 	})
-	users := srv.Users()
-	customers := srv.Customers()
-	app.Bind(users)
-	app.Bind(customers)
+	//users := srv.Users()
+	//customers := srv.Customers()
+	// app.Bind(users)
+	// app.Bind(customers)
+	bindMap(app, srv)
 	app.Run()
+}
+
+func bindMap(app *wails.App, srv *service.SrvAll) {
+	i := srv.GetAll()
+	for _, val := range i {
+		switch v := val.(type) {
+		case *service.SrvUsers:
+			app.Bind(v)
+		case *service.SrvCustomer:
+			app.Bind(v)
+		}
+	}
 }

@@ -18,3 +18,8 @@ func NewSrvCustomer(db storm.Node) *SrvCustomer {
 		MetaData: &model.CustomerQuestion{},
 	}
 }
+
+// Name to comply with interface
+func (sc *SrvCustomer) Name() string {
+	return DBCustomers
+}
