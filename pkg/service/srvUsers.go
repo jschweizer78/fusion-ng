@@ -17,7 +17,7 @@ type SrvUsers struct {
 func NewSrvUsers(db storm.Node) *SrvUsers {
 	return &SrvUsers{
 		DB:       db,
-		metaData: &model.UserQuestion{},
+		metaData: model.NewUserQuestions(),
 	}
 }
 
