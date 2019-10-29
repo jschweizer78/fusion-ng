@@ -24,7 +24,7 @@ func NewSrvUsers(db storm.Node) *SrvUsers {
 // GetAll gets all users from storm DB
 func (su *SrvUsers) GetAll() ([]*model.User, error) {
 	var users []*model.User
-	err := su.DB.All(users)
+	err := su.DB.All(&users)
 	if err != nil {
 		return nil, fmt.Errorf("coul not find users: %v", err)
 	}
