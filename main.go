@@ -84,7 +84,10 @@ func main() {
 		CSS:    css,
 		Colour: "#131313",
 	})
-	app.Bind(srv)
+	users := srv.Users()
+	customers := srv.Customers()
+	app.Bind(users)
+	app.Bind(customers)
 	app.Bind(basic)
 	app.Run()
 }
