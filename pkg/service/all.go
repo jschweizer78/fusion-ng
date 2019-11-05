@@ -14,6 +14,12 @@ type Servicer interface {
 	Name() string
 }
 
+// PaginationOptions for frontend to send pagintaion optons
+type PaginationOptions struct {
+	Skip  int `json:"skip"`
+	Limit int `json:"Limit"`
+}
+
 // SrvAll to manager all APIs
 type SrvAll struct {
 	services map[string]Servicer
